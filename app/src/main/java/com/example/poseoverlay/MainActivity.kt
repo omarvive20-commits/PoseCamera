@@ -8,7 +8,6 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
-import android.content.Context
 import org.json.JSONArray
 import org.json.JSONObject
 
@@ -104,7 +103,7 @@ private class PoseLibrary(private val context: Context) {
 
 class MainActivity:ComponentActivity(){
     override fun onCreate(savedInstanceState:Bundle?){super.onCreate(savedInstanceState)
-        poseLibrary = PoseLibrary(this);setContent{VideoPoseCamera()}}
+        setContent{VideoPoseCamera()}}
 }
 
 @Composable
@@ -167,7 +166,7 @@ fun VideoPoseCamera(){
                 provider.bindToLifecycle(context as ComponentActivity,CameraSelector.DEFAULT_BACK_CAMERA,prev,analysis,vc)
             }catch(_:Exception){}
         },ContextCompat.getMainExecutor(context))
-        onDispose{executor.shutdown();preview.release()}
+        onDispose{executor.shutdown();}
     }
 
     fun startStopVideo(){
@@ -217,7 +216,7 @@ fun VideoPoseCamera(){
                         Button({tracking=!tracking}){Text(if(tracking)"⏸ Track" else "▶ Track")}
                         Button({skeleton=!skeleton}){Text(if(skeleton)"Skeleton" else "Clean")}
                         Button({locked=!locked}){Text(if(locked)"🔒" else "🔓")}
-                        Button({startStopVideo},colors=ButtonDefaults.buttonColors(containerColor=if(recording)Color.Red else MaterialTheme.colorScheme.primary)){
+                        Button({startStopVideo()},colors=ButtonDefaults.buttonColors(containerColor=if(recording)Color.Red else MaterialTheme.colorScheme.primary)){
                             Text(if(recording)"■ Stop" else "● Video")
                         }
                     }
