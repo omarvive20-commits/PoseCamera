@@ -5,7 +5,7 @@ android { namespace="com.example.poseoverlay"; compileSdk=35
  defaultConfig { applicationId="com.example.poseoverlay"; minSdk=26; targetSdk=35; versionCode=4; versionName = "1.9" }
 }
 dependencies {
-    implementation("com.google.mlkit:pose-detection:18.0.0")
+    implementation("com.google.mlkit:pose-detection:18.0.0-beta5")
  implementation("androidx.core:core-ktx:1.15.0")
  implementation("androidx.activity:activity-compose:1.10.0")
  implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
