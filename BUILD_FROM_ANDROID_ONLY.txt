@@ -1,0 +1,13 @@
+Pose Camera v1.9 — Build APK from an Android phone
+
+1. Create/sign in to a GitHub account.
+2. Create a new repository.
+3. Upload the contents of this ZIP to the repository (keep .github/workflows/build-apk.yml).
+4. Open the repository's Actions tab.
+5. Select "Build Pose Camera APK".
+6. Tap "Run workflow" (or push to main/master).
+7. When the workflow finishes, open the successful run.
+8. In Artifacts, download "PoseCamera-v1.9-debug-apk".
+9. Extract the ZIP and install the APK on Android.
+
+This workflow builds a DEBUG APK. It is suitable for installing/testing on a personal Android phone.
